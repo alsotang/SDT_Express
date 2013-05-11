@@ -1,4 +1,7 @@
 SdtExpress::Application.routes.draw do
+  resources :news_items
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
