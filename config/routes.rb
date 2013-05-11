@@ -1,4 +1,7 @@
 SdtExpress::Application.routes.draw do
+  resources :drivers
+
+
   root to: 'home#index'
 
   get "home/index"

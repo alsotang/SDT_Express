@@ -1,0 +1,42 @@
+<%- model_class = Driver -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:vehicle_type) %></th>
+      <th><%= model_class.human_attribute_name(:current_loc) %></th>
+      <th><%= model_class.human_attribute_name(:vehicle_status) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @drivers.each do |driver| %>
+      <tr>
+        <td><%= link_to driver.id, driver_path(driver) %></td>
+        <td><%= driver.name %></td>
+        <td><%= driver.vehicle_type_readable %></td>
+        <td><%= driver.current_loc %></td>
+        <td><%= driver.vehicle_status_readable %></td>
+        <td><%=l driver.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_driver_path(driver), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      driver_path(driver),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_driver_path,
+            :class => 'btn btn-primary' %>
