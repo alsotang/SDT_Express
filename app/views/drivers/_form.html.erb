@@ -8,7 +8,8 @@
   <div class="control-group">
     <%= f.label :vehicle_type, :class => 'control-label' %>
     <div class="controls">
-      <%= f.number_field :vehicle_type, :class => 'number_field' %>
+      <%#= f.number_field :vehicle_type, :class => 'number_field' %>
+      <%= f.select :vehicle_type, ['拖拉机', '电动车', '三轮车'].each_with_index.map{|type, i| [type, i]} %>
     </div>
   </div>
   <div class="control-group">
