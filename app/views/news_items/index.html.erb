@@ -17,7 +17,7 @@
       <tr>
         <td><%= link_to news_item.id, news_item_path(news_item) %></td>
         <td><%= news_item.title %></td>
-        <td><%= news_item.content %></td>
+        <td><%= news_item.content[0, 110] %></td>
         <td><%=l news_item.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
