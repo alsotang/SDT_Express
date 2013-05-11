@@ -44,4 +44,6 @@ gem 'twitter-bootstrap-rails'
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'factory_girl_rails'
+  gem "seedbank"
 end
+
