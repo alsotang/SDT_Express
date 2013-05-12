@@ -1,4 +1,5 @@
 10.times do |num|
+  num += 1
   Driver.create!(
     name: "快递员司机 %d" % num,
     vehicle_type: num * 7 % 3,

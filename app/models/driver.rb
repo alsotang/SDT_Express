@@ -2,6 +2,7 @@
 
 class Driver < ActiveRecord::Base
   attr_accessible :current_loc, :name, :vehicle_status, :vehicle_type
+  default_scope order('updated_at DESC')
   def vehicle_type_readable
     type_mapper = {
       0 => '拖拉机',
