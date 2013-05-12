@@ -1,0 +1,8 @@
+<%= form.fields_for :order_histories do |history_form| %>
+  <div class="control-group">
+    <%= history_form.label :where_is, "所经位置", :class => 'control-label' %>
+    <div class='controls'>
+      <%= history_form.text_field :where_is, :class => 'text_field' %>
+    </div>
+  </div>
+<% end %>

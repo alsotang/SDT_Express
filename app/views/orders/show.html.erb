@@ -1,25 +1,38 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Order -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human %></h1>
+</div>
 
-<p>
-  <b>Start loc:</b>
-  <%= @order.start_loc %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:start_loc) %>:</strong></dt>
+  <dd><%= @order.start_loc %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:end_loc) %>:</strong></dt>
+  <dd><%= @order.end_loc %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:price) %>:</strong></dt>
+  <dd><%= @order.price %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:is_done) %>:</strong></dt>
+  <dd><%= @order.is_done %></dd>
+</dl>
 
-<p>
-  <b>End loc:</b>
-  <%= @order.end_loc %>
-</p>
-
-<p>
-  <b>Price:</b>
-  <%= @order.price %>
-</p>
-
-<p>
-  <b>Is done:</b>
-  <%= @order.is_done %>
-</p>
+<h3>包裹跟踪</h3>
+<ul>
+  <% @order.order_histories.each do |history| %>
+    <li>
+      <span><%= history.time_point %></span>
+      <span><%= history.where_is %></span>
+    </li>
+  <% end %>
+</ul>
 
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              orders_path, :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_order_path(@order), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              order_path(@order),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
