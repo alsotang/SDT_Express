@@ -1,14 +1,16 @@
 SdtExpress::Application.routes.draw do
+  root to: 'home#index'
+
   resources :users
 
 
+  get 'orders/search'
   resources :orders
 
 
   resources :drivers
 
 
-  root to: 'home#index'
 
   get "home/index"
 

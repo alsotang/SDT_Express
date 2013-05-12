@@ -1,1 +1,5 @@
-<h1>我是主页大人</h1>
+
+<%= form_tag({:controller => :orders, :action => :search}, {:method => :get, :class => "form-search"}) do %>
+  <%= text_field_tag :order_id, nil, :class => "input-medium search-query", :placeholder => "请输入订单号" %>
+  <%= submit_tag "查询", :class => 'btn' %>
+<% end %>
