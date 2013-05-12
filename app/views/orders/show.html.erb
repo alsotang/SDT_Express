@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Start loc:</b>
+  <%= @order.start_loc %>
+</p>
+
+<p>
+  <b>End loc:</b>
+  <%= @order.end_loc %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @order.price %>
+</p>
+
+<p>
+  <b>Is done:</b>
+  <%= @order.is_done %>
+</p>
+
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>
